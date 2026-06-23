@@ -1,4 +1,4 @@
-name: sandbox-baseline
+name: cr09-sandbox-baseline
 
 hosts:
   - name: win-srv-2025-desktop
