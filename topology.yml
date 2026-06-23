@@ -1,0 +1,35 @@
+name: sandbox-baseline
+
+hosts:
+  - name: win-srv-2025-desktop
+    base_box:
+      image: cr09-windows-server-2025-x86_64
+      mgmt_user: windows
+    flavor: c4_r5_d90
+
+routers:
+  - name: router
+    base_box:
+      image: debian-12-x86_64
+      mgmt_user: debian
+    flavor: c1_r2_d10
+
+networks:
+  - name: network
+    cidr: 10.0.0.0/24
+
+wan:
+  name: internet-connection
+  cidr: 100.100.100.0/24
+
+net_mappings:
+    - host: win-srv-2025-desktop
+      network: network
+      ip: 10.0.0.10
+
+router_mappings:
+    - router: router
+      network: network
+      ip: 10.0.0.1
+
+groups: []

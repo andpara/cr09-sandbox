@@ -1,0 +1,15 @@
+- name: Initialize Sandbox Host
+  hosts: win-srv-2025-desktop
+  gather_facts: yes
+  
+  roles:
+    - name: ansible-role-user-access-windows
+      user_access_username: user
+      user_access_password: Password123
+      user_access_rdp: True
+      user_access_admin: True
+      
+  tasks:
+    - name: Print Msg
+      debug:
+        msg: "win-srv-2025-sandbox-demo"
